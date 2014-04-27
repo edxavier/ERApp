@@ -1,0 +1,92 @@
+
+<div  id="alerts" ></div>
+<div class="col-sm-6" >
+	<div class="panel panel-primary"  >
+		  <div class="panel-heading"> <span class="glyphicon glyphicon-plus-sign" ></span> Catalogo de sistemas/elementos </div>
+		  		<div class="panel-body">
+					<form action="" name="syscatalogForm" ng-submit="addSystem(syscatalogForm.$valid)" novalidate>
+
+						<div class="form-group ">
+
+							<div class="col-sm-5" data-toggle="tooltip" data-placement="right" title="Clasifica la nota con un estado segun el nivel de incidencia presente">	
+
+							 		<select name="ubication" ui-select2="" ng-model="sysCatalog._room" data-placeholder="Ubicacion del sistema" style="width:80%" required >
+									    <option value=""></option>
+									    <option ng-repeat="room in Rooms" value="{{room._id}}">
+									 		{{room.name}}
+									 	</option>
+									</select>									
+							</div>
+
+							<div class="col-sm-5" data-toggle="tooltip" data-placement="right" title="Clasifica la nota con un estado segun el nivel de incidencia presente">	
+
+							 		<select name="group" ui-select2="" ng-model="sysCatalog._sysgroup" data-placeholder="Grupo de sistemas" style="width:80%" required >
+									    <option value=""></option>
+									    <option ng-repeat="sg in sysGroups" value="{{sg._id}}">
+									 		{{sg.name}}
+									 	</option>
+									</select>									
+							</div>						
+
+						</div>
+
+						<br><br>
+
+						 <div  class="form-group" ng-class="{ 'has-error' : syscatalogForm.sysname.$invalid && !syscatalogForm.sysname.$pristine }">						
+							<input class="form-control input-sm" name="sysname" placeholder="Nombre" style="width:50%" required ng-model="sysCatalog.name" ng-minlength="3" ng-maxlength="20">
+							
+						 </div>
+
+
+						 <div  class="form-group" ng-class="{ 'has-error' : syscatalogForm.description.$invalid && !syscatalogForm.sysname.$pristine }">						
+							<input class="form-control input-sm" name="description" placeholder="Descripcion" ng-model="sysCatalog.description" required ng-minlength="20" ng-maxlength="500">
+						 </div>
+						 
+						 <button  type="submit" class="btn btn-sm btn-success" 
+						 ng-disabled="syscatalogForm.$invalid" data-type="info" data-container="#alerts"
+						 data-placement="top-right"  data-duration="4" data-animation="am-fade-and-scale" bs-alert="alert">
+							 Guardar <span class="glyphicon glyphicon-floppy-save"></span>
+						</button>
+					</form>
+			    </div>
+      </div>
+		  <div ng-show="syscatalogForm.sysname.$invalid && !syscatalogForm.sysname.$pristine" 
+		  class="alert alert-danger">
+		  	<span class="glyphicon glyphicon-warning-sign"></span> 
+		  	Nombre del sistema requerido con un minimo de 3 caracteres
+		  </div>
+
+		 <div ng-show="syscatalogForm.description.$invalid  && !syscatalogForm.description.$pristine" 
+		 class="alert alert-danger">
+		 	<span class="glyphicon glyphicon-warning-sign"></span> 
+		 	Indicar una breve descripcion de al menos 20 caracteres
+		 </div>
+
+</div>
+
+<div class="col-sm-6" >
+	<div class="form-group input-group col-sm-6">
+					    <input class="form-control input-sm" name="username" placeholder="Buscar" ng-model="sysquery" >
+					   <span class="input-group-addon"><span class="glyphicon glyphicon-search"></span></span>
+	</div>
+	<div class="table-responsive tabla">
+		<table class="table table-hover table-striped table-bordered">
+			<caption class="caption">
+			    Sistemas
+			</caption>
+			<tr class="fields">
+			  <th>ID</th>
+			  <th>Nombre</th>
+			  <th>Grupo</th>  
+			  <th>Hubicacion</th> 
+			  <th>Descripcion</th>
+			</tr>
+			<tr ng-repeat="sys in Systems | filter:sysquery | orderBy:'-_id'" value="{{sys._id}}">
+			  <td>{{sys._id}}</td>
+			  <td>{{sys.name}}</td>
+			  <td>{{sys._sysgroup.name}}</td>
+			  <td>{{sys._room.name}}</td>
+			  <td>{{sys.description}}</td> 
+			</tr>
+		</table>
+</div>

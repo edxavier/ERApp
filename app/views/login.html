@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es"  data-framework="angularjs">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<link rel="icon" href="imagenes/favicon.ico" type="image/x-icon" />
+	<title>Estacion Radar Managua</title>
+	<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/radar.css">
+	
+
+
+
+	<!-- Latest compiled and minified CSS -->
+ 	<script src="http://code.jquery.com/jquery-1.11.0.js"></script>
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="vendors/angular.js"></script>
+	<script src="vendors/angular-route.js"></script>
+	
+	<script src="js/app.js"></script>
+	<script src="js/controller.js"></script>
+
+  
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="bootstrap/js/bootstrap.min.js"></script>
+
+
+</head>
+<body ng-app="" >
+
+	<header class="row">
+		<div class="logo col-md-1">			
+				<img src="imagenes/Notes.png">		
+		</div>
+		<div class="titular col-md-8">			
+			<h1 class="titulo">
+				Empresa Administradora de Aeropuertos Internacionales
+			</h1>
+			<div>
+				<a class="subtitulo" href="#">
+					Estacion Radar Managua
+				</a>				
+			</div>
+		</div>
+		
+	</header>
+
+<section>
+	<div class="container">
+	    <div class="row vertical-offset-100">
+	    	<div class="col-md-4 col-md-offset-4">
+	    		<div class="panel panel-primary">
+				  	<div class="panel-heading">
+				    	<h3 class="panel-title "><span class="glyphicon glyphicon-list"></span> Formulario de acceso</h3>
+				 	</div>
+				  	<div class="panel-body">
+				    	<form method="POST" action="/log-me-in">
+		                    <fieldset>		  
+					    	  	<div class="form-group input-group">
+					    	  		<span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
+					    		    <input class="form-control" name="username" placeholder="Usuario" >
+					    		</div>
+					    		<div class="form-group input-group">
+					    			<span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
+					    			<input class="form-control" name="password"  placeholder="Clave" type="password">
+					    		</div>
+		                        <button  class="btn btn-success btn-md  btn-block" type="submit">
+		                          <span class="glyphicon glyphicon-log-in"  ></span> Iniciar sesion
+		                        </button>
+		                   
+					    	</fieldset>
+				      	</form>
+				    </div>				    
+				</div>
+				{% if visible %}
+					<div class="alert alert-danger alert-dismissable" >
+						 <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+						<span class="glyphicon glyphicon-warning-sign"></span> 
+						 Credenciales incorrectas
+					</div>
+				{% endif %}
+			</div>
+		</div>
+		 
+   </section>
+
+	<footer class="text-center">
+		<h3>
+			<strong>Powered by Eder Xavier Rojas </strong>
+			<span class="mejor">
+			 	<span class="glyphicon glyphicon-copyright-mark"></span> {{year}}
+			</span>
+		</h3>
+	</footer>
+
+
+</body>
+
+</html>

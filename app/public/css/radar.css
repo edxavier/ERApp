@@ -1,0 +1,146 @@
+header {
+  background-color: #171a1c;
+  color: #fff;
+  padding: 1em;
+  border-bottom: 6px solid #0084ee;
+  box-shadow: 3px 3px 5px #fff;
+}
+header h1 {
+  font-size: 17px;
+  font-family: Arial;
+  font-weight: bold;
+  padding: 0;
+  margin: 0;
+}
+header .subtitulo {
+  text-decoration: none;
+  font-weight: normal;
+  font-family: Arial;
+}
+header .logo {
+  overflow: hidden;
+  padding-left: 40px;
+}
+header .logo img {
+  height: 38px;
+  width: 38px;
+}
+header .usuario {
+  text-decoration: none;
+  font-size: 12px;
+  padding-top: 5px;
+}
+header .salir {
+  font-size: 12px;
+  font-style: italic;
+  text-decoration: none;
+}
+nav {
+  background-color: #e7e7f4;
+  padding-left: 10px;
+  font-size: 12px;
+  border-bottom: 2px solid rgba(68,68,68,0.3);
+}
+nav .query {
+  height: 25px;
+  font-size: 12px;
+}
+section {
+  padding: 1.2em;
+}
+section article {
+  border: 1px solid #b0c8d1;
+  box-shadow: 2px 2px 10px #102648;
+  border-radius: 5px;
+  margin-bottom: 1.2em;
+  text-decoration: none;
+}
+section article h2 {
+  color: #444;
+  font-size: 18px;
+  border-bottom: 1px solid #0084ee;
+  overflow: hidden;
+  font-weight: bold;
+}
+section article .detalles .estado {
+  padding-left: 10px;
+}
+section article .detalles .titulo {
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-bottom: 3px;
+  font-size: 15px;
+}
+section article .detalles .contenido {
+  padding-left: 10px;
+  padding-right: 10px;
+  word-break: break-word;
+  font-size: 12px;
+}
+section article .tags {
+  padding-bottom: 3px;
+  padding-left: 10px;
+}
+section article .tags .tag {
+  border-radius: 4px;
+  color: #000;
+  padding: 3px;
+  font-size: 10px;
+  text-decoration: none;
+  background-color: #dfc27d;
+}
+section article .fecha {
+  text-decoration: none;
+  padding-right: 10px;
+  font-size: 12px;
+}
+section article .credito {
+  border-top: 2px solid #fa6900;
+  padding: 0.3em;
+  text-decoration: none;
+}
+section article .credito .autor {
+  margin-left: 15px;
+}
+section article .credito .autor .auth {
+  text-decoration: none;
+}
+section .container {
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+section div .tabla table .caption {
+  background-color: #b0c8d1;
+  font-size: 15px;
+  padding: 5px;
+}
+section div .tabla table .fields th {
+  background-color: #e7e7f4;
+}
+.normal {
+  background-color: #4d9221;
+}
+.info {
+  background-color: #0084ee;
+}
+.trabajos {
+  background-color: #444;
+}
+.menor {
+  background-color: #faa818;
+}
+.medio {
+  background-color: #cf5f3b;
+}
+.mayor {
+  background-color: #f00;
+}
+footer {
+  background-color: #171a1c;
+  color: rgba(231,231,244,0.4);
+  border-top: 4px solid #0084ee;
+  padding: 0.3em;
+}
+footer h3 {
+  font-size: 12px;
+}

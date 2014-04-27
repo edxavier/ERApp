@@ -1,0 +1,8 @@
+{
+  "name": "ed",
+  "version": "0.0.1",
+  "dependencies": {
+    "angular-ui-tinymce": "latest",
+    "angular-motion": "~0.3.2"
+  }
+}

@@ -1,0 +1,50 @@
+
+
+<div class="col-sm-8"  >
+	<div  id="alerts" ></div>
+	<div class="panel panel-primary"  >
+		  <div class="panel-heading"> <span class="glyphicon glyphicon-plus-sign" ></span> Crear nueva nota</div>
+		  		<div class="panel-body">
+					<form action="" name="noteForm" ng-submit="postNote(noteForm.$valid)" novalidate>
+
+						<div class="form-group " ng-class="{ 'has-error' : noteForm.note.$invalid && !noteForm.note.$pristine }">
+							<div class="col-sm-4" data-toggle="tooltip" data-placement="right" title="Clasifica la nota con un estado segun el nivel de incidencia presente">	
+
+							 		<select name="severity" ui-select2="optionsSelect2" ng-model="formData.severity" data-placeholder="Estado de la nota" style="width:80%" required >
+									    <option value=""></option>
+									    <option ng-repeat="state in States" value="{{state._id}}">
+									 		{{state.title}}
+									 	</option>
+									</select>
+
+									
+							</div>
+
+							<div class="col-sm-6" data-toggle="tooltip" data-placement="right" title="Etiqueta todos los sistemas involucrados en la nota">
+							   <select ui-select2="" ng-model="formData.systemsTags" data-placeholder="Sistemas involucrados" style="width:95%" multiple data-toggle="tooltip" data-placement="right" title="Tooltip on right">						   		
+									 <option ng-repeat="sys in Systems" value="{{sys._id}}">
+									 	{{sys.name}}
+									 </option>
+									
+								</select>			
+							</div>
+
+
+						</div>
+						<br><br>
+						 <div  class="form-group" ng-class="{ 'has-error' : noteForm.note.$invalid && !noteForm.note.$pristine }">						
+							<textarea class="form-control" name="note" ui-tinymce="tinymceOptions" ng-model="formData.noteModel" required ng-minlength="50" ng-maxlength="5000" style="height:85%;"></textarea>							
+								
+						 </div>
+						 
+						 <button  type="submit" class="btn btn-sm btn-success" ng-disabled="noteForm.$invalid"  data-type="info" data-container="#alerts"
+						 data-placement="top-right"  data-duration="4" data-animation="am-fade-and-scale" bs-alert="alert">
+						 	Publicar <span class="glyphicon glyphicon-floppy-save"></span>
+						 </button>
+					</form>
+			    </div>
+      </div>
+		 <div ng-show="noteForm.severity.$invalid" class="alert alert-warning">Especifique el estado de la nota</div>
+		 <div ng-show="noteForm.note.$error.minlength" class="alert alert-warning">Texto minimo requerido en la nota</div>
+		 <div ng-show="noteForm.note.$error.maxlength" class="alert alert-warning">maximo 5000</div>
+</div>

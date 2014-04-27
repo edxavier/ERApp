@@ -1,0 +1,34 @@
+<div class="col-sm-12 noteList" ng-repeat="nota in bitacora | filter:query | orderBy:'-_id'" id="{{nota.id}}" data-animation="am-fade-and-scale">
+			
+			<article class="nota" style="margin-left:auto;margin-right:auto;width:90%;">
+					<div class="descripcion row">
+						<div class="detalles col-sm-12">
+							<h2 class="titulo">Sala Tecnica <strong class='pull-right'>Nota: {{nota._id}}</strong></h2>
+							<p class="estado">
+								<span class="label {{nota._severity.css}}" data-toggle="tooltip" data-placement="right" title="{{nota._severity.description}}"> 
+									<span class="glyphicon glyphicon-flag"></span> 
+									{{nota._severity.title}}
+								</span>
+							</p>
+							<p class="contenido" ng-bind-html="nota.description">
+								{{nota.description}}							
+							</p>
+							
+							<div class="tags pull-left " ng-repeat="tag in nota._systems">
+								<a class="tag" href="#" onclick="return false" data-toggle="tooltip" data-placement="right" title="{{tag.description}}">
+									{{tag.name}}
+								</a>
+							</div>
+							<a class="fecha pull-right" href="#" onclick="return false">
+								<strong> {{nota.savedOn | date:'EEE dd MMM yyyy @HH:mm utc'}}</strong>
+	
+							</a>
+						</div>
+					</div>
+					<div class="credito ">
+						<p class="autor ">
+								Por:<small> <a href="#" onclick="return false" class="auth">{{nota._user.firstName}} {{nota._user.lastName}}</small></a>
+						</p>
+					</div>
+			</article>			
+</div>

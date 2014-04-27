@@ -1,0 +1,68 @@
+<div  id="alerts" ></div>
+<div class="col-sm-6" >
+	<div class="panel panel-primary"  >
+		  <div class="panel-heading"> <span class="glyphicon glyphicon-plus-sign" ></span> Perfil de Usuario </div>
+		  		<div class="panel-body">
+					<form action="" name="userForm" ng-submit="updateUser(userForm.$valid)" novalidate>
+						
+						 <div  class="form-group input-group" ng-class="{ 'has-error' : userForm.sysname.$invalid && !userForm.sysname.$pristine }">
+							 <span class="input-group-addon">
+						 			<span class="glyphicon glyphicon-user"></span>
+						 		</span>							
+							<input class="form-control input-sm" name="username" placeholder="Usuario" style="width:50%"  ng-model="currentUser.username" ng-minlength="3" ng-maxlength="20" readonly>
+							
+						 </div>
+
+						<div >
+							<h5>Nombres</h5>
+						 </div>
+
+						 <div  class="form-group input-group" ng-class="{ 'has-error' : userForm.firstName.$invalid && !userForm.firstName.$pristine }">	
+						 	<span class="input-group-addon">
+						 		<input type="checkbox" ng-model="currentUser.updateNames">
+						 	</span>						
+							<input class="form-control input-sm" name="firstName" placeholder="Nombres" 
+							ng-model="currentUser.firstName" required ng-disabled="!currentUser.updateNames">
+						 </div>
+						 <div >
+							<h5>Apellidos</h5>
+						 </div>
+						 
+						 <div  class="form-group input-group" ng-class="{ 'has-error' : userForm.lastName.$invalid && !userForm.lastName.$pristine }">	
+								 <span class="input-group-addon">
+						 			<input type="checkbox" ng-model="currentUser.updateLNames">
+						 		</span>						
+							<input class="form-control input-sm" name="lastName" placeholder="Apellidos"
+							 ng-model="currentUser.lastName" required ng-disabled="!currentUser.updateLNames">
+						 </div>
+		
+
+						 <div >
+							<h5>Cambiar clave de acceso</h5>
+						 </div>
+
+						 <div  class="form-group input-group" 						 	
+						 	ng-class="{ 'has-error' : userForm.newPassword.$invalid }">			
+						 	<span class="input-group-addon">
+						 			<input type="checkbox" ng-model="currentUser.createNewPass">
+						 	</span>			
+							<input class="form-control input-sm" name="newPassword" placeholder="Escriba su nueva clave" ng-model="currentUser.newPassword" ng-required="currentUser.createNewPass" 
+							ng-disabled="!currentUser.createNewPass" type="password"  ng-minlength="5">
+						 </div>
+						 <div ng-show="userForm.newPassword.$invalid">
+							 Clave de 5 caracteres de longitud minima
+						 </div>
+
+						<div class="form-group">
+							 <button  type="submit" class="btn btn-sm btn-success" 
+							 ng-disabled="userForm.$invalid || (currentUser.createNewPass && userForm.newPassword.$invalid) || (currentUser.updateNames && userForm.firstName.$pristine) || (currentUser.updateLNames && userForm.lastName.$pristine)|| (!currentUser.updateLNames &&!currentUser.createNewPass && !currentUser.updateNames)" 
+							 data-type="info" data-container="#alerts"
+							 data-placement="top-right"  data-duration="4" data-animation="am-fade-and-scale" bs-alert="alert">
+								 Guardar <span class="glyphicon glyphicon-floppy-save"></span>
+							</button>
+						</div>
+					</form>
+			    </div>
+      </div>
+		  
+</div>
