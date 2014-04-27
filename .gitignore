@@ -217,5 +217,7 @@ pip-log.txt
 ./app/public/vendorsbower_components/*
 ./app/public/vendorsbower_components/
 /app/public/vendorsbower_components/
+app/public/vendorsbower_components/
 app/public/vendors/bower_components/angular-animate/README.md
 app/public/vendors/bower_components/angular-strap/dist/modules/alert.min.js
+node_modules/
