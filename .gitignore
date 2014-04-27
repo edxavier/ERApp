@@ -213,3 +213,7 @@ pip-log.txt
 
 #Mr Developer
 .mr.developer.cfg
+
+./app/public/vendorsbower_components/*
+./app/public/vendorsbower_components/
+/app/public/vendorsbower_components/
